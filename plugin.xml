@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+        id="yc-navigator" version="0.0.1">
+    <name>YCAmap</name>
+    <description>Cordova Plugin for Map Navigation.</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,yc-cordova,amap</keywords>
+    <js-module src="www/YCNavigator.js" name="YCNavigator">
+        <clobbers target="YCNavigator" />
+    </js-module>
+    <platform name="ios">
+
+        <config-file target="config.xml" parent="/*">
+            <feature name="YCNavigator">
+                <param name="ios-package" value="YCNavigator" />
+            </feature>
+        </config-file>
+        <config-file target="*-Info.plist" parent="LSApplicationQueriesSchemes">
+            <array>
+                <string>iosamap</string>
+                <string>baidumap</string>
+            </array>
+        </config-file>
+        <header-file src="src/ios/YCNavigator.h" />
+        <source-file src="src/ios/YCNavigator.m" />
+    </platform>
+
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="YCNavigator" >
+                <param name="android-package" value="news.chen.yu.ionic.YCNavigator"/>
+            </feature>
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest">
+            <!--允许程序打开网络套接字-->
+            <uses-permission android:name="android.permission.INTERNET" />  
+            <!--允许程序设置内置sd卡的写权限-->
+            <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />  
+            <!--允许程序获取网络状态-->
+            <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+            <!--允许程序访问WiFi网络信息-->
+            <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+            <!--允许程序读写手机状态和身份-->
+            <uses-permission android:name="android.permission.READ_PHONE_STATE" />    
+            <!--允许程序访问CellID或WiFi热点来获取粗略的位置-->
+            <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+        </config-file>
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <activity
+                    android:name="news.chen.yu.ionic.YCNavigator">
+                <intent-filter>
+                    <action android:name="news.chen.yu.ionic.YCNavigator" />
+                    <category android:name="android.intent.category.DEFAULT" />
+                </intent-filter>
+            </activity>
+        </config-file>
+
+        <source-file src="src/android/YCNavigator.java" target-dir="src/news/chen/yu/ionic" />
+	</platform>
+</plugin>
