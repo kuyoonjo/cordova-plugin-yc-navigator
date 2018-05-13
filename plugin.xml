@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        id="yc-navigator" version="0.0.1">
-    <name>YCAmap</name>
+        id="cordova-plugin-yc-navigator" version="1.0.2">
+    <name>Map navigator</name>
     <description>Cordova Plugin for Map Navigation.</description>
     <license>Apache 2.0</license>
-    <keywords>cordova,yc-cordova,amap</keywords>
+    <keywords>cordova,yc-cordova,map</keywords>
     <js-module src="www/YCNavigator.js" name="YCNavigator">
         <clobbers target="YCNavigator" />
     </js-module>
